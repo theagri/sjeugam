@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<title>
-			<? if(isset($d->title)):?><?=$d->title;?> &mdash; <? endif;?>KallePersson.se
+			<? if(isset($d->title)):?><?=$d->title;?> &mdash; <? endif;?><?=SJEUGAM_SITE_NAME?>
 		</title>
-		<base href="<?=FLB_BASE_URL?>"></base>
+		<base href="<?=SJEUGAM_BASE_URL?>"></base>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
 	</head>
