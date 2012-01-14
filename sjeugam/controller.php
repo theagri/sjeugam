@@ -35,9 +35,10 @@ class SjeugamController {
 			$this->render('feed',$entries);
 		}
 		elseif($route == 'update') {
-			$entries = $this->model->getEntries(false,true);
+			$output = shell_exec(sprintf('cd %s && git pull',SJEUGAM_POSTS_PATH));
+			$this->model->getEntries(false,true);
 			$this->render('header');
-			$this->render('update',$entries);
+			$this->render('update',$output);
 			$this->render('footer');
 		}
 		else {

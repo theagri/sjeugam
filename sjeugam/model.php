@@ -1,5 +1,10 @@
 <?php
 
+function cmpTimestamp($a,$b) {
+	if($a->timestamp == $b->timestamp) {return 0;}
+	return $a->timestamp > $b->timestamp ? 1 : -1;
+}
+
 class SjeugamModel {
 
 	private $path = './posts_src/';
@@ -9,9 +14,9 @@ class SjeugamModel {
 		$entries = array();
 		foreach($entry_files as $entry_file) {
 			$tmp_entry = new SjeugamEntry(sprintf('%s%s',$this->path,$entry_file),$override_cache);
-			$entries[$tmp_entry->timestamp] = $tmp_entry;
+			$entries[] = $tmp_entry;
 		}
-		krsort($entries);
+		usort($entries,'cmpTimestamp');
 		if($limit) {
 			$entries = array_slice($entries,0,$limit);
 		}
@@ -67,7 +72,12 @@ class SjeugamEntry {
 		$alias = preg_replace('/[-]{2,}/','-',$alias); // Replaces one or more occurrences of a hyphen, with a single one.  
 		$alias = trim($alias,'-'); // This ensures that our string doesn't start or end with a hyphen.  
 		$this->alias = $alias;
-		$this->url = sprintf('%s%s',SJEUGAM_BASE_URL,$this->alias);
+		if(defined(SJEUGAM_USE_REWRITE) && SJEUGAM_USE_REWRITE) {
+			$this->url = sprintf('%s%s',SJEUGAM_BASE_URL,$this->alias);
+		}
+		else {
+			$this->url = sprintf('%s?route=%s',SJEUGAM_BASE_URL,$this->alias);
+		}
 		
 		if(!file_exists($this->get_cache_path()) || $override_cache) {
 			require_once('markdown.php');
