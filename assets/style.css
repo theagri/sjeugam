@@ -1,0 +1,202 @@
+@import url(http://fonts.googleapis.com/css?family=Patua+One);
+
+*,* {
+	margin: 0 auto;
+}
+
+body {
+	background: #eee;
+	font-family: Arial;
+	color: #333;
+	line-height: 150%;
+	padding: 15px 0;
+}
+
+h1 {
+	font: normal 32px 'Patua One',Arial,sans-serif;
+	letter-spacing: -1px;
+	color: #111;
+	margin: 0 0 10px 0;
+}
+
+h2 {
+	font: normal 24px 'Patua One',Arial,sans-serif;
+	letter-spacing: -1px;
+	color: #111;
+	margin: 0 0 5px 0;
+}
+
+h3 {
+	font: normal 18px 'Patua One',Arial,sans-serif;
+	letter-spacing: -1px;
+	color: #111;
+	margin: 0 0 5px 0;
+}
+
+ul {
+	padding: 10px 0 10px 15px;
+}
+
+p {
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: -0.5px;
+	line-height: 150%;
+	margin: 0 0 5px 0;
+}
+
+a {
+	color: #ff3333;
+	text-decoration: none;
+	-moz-transition: all 0.1s ease;
+}
+
+strong {
+	color: #111;
+}
+
+a:hover,a:focus {
+	color: #bb3333;
+}
+
+header,footer,section {
+	margin: 0 auto;
+	width: 663px;
+}
+
+article {
+	padding: 25px;
+	background: #fff url('article_bottom.png') repeat-x bottom left;
+	margin: 0 0 10px 0;
+	box-shadow: 0 0 5px #ddd;
+	overflow: hidden;
+}
+
+article p {
+	margin: 0 0 15px 0;
+}
+
+article.nb {
+	background-image: none;
+}
+
+footer {
+	overflow: hidden;
+}
+
+footer a {
+	font-size: 12px;
+	font-weight: bold;
+	color: #555;
+	display: block;
+	float: left;
+	padding: 2px 3px 0 3px;
+	margin: 0 10px 0 0;
+
+}
+
+footer a:hover,footer a:focus {
+	color: #111;
+	padding-top: 0;
+}
+
+blockquote {
+	padding: 15px 0;
+	text-align: center;
+	border: 1px solid #bbb;
+	border-width: 1px 0;
+	margin: 15px 0;
+	color: #4c4c4c;
+	font-family: Georgia;
+}
+
+blockquote p {
+	font-style: italic;
+	font-size: 18px;
+}
+
+time {
+	font-size: 12px;
+	color: #aaa;
+}
+
+pre {
+	background: #333;
+	padding: 15px 20px;
+	color: #eee;
+	margin: 0 0 15px 0;
+	border-left: 10px solid #333;
+	font-family: Courier,monospace;
+}
+
+#archives {
+	background: #fff;
+	box-shadow: 0 0 5px #ddd;
+}
+
+#archives ul {
+	background: transparent;
+	list-style: none;
+	padding: 25px;
+	margin: 0 0 15px 0;
+}
+
+#archives li {
+	border: 1px solid #c0c0c0;
+	border-width: 0 0 1px 0;
+	overflow: hidden;
+}
+
+#archives li:first-child {
+	border-top: 1px solid #c0c0c0;
+}
+
+#archives li a {
+	display: block;
+	overflow: hidden;
+	color: #888;
+}
+
+#archives li a:hover,#archives li a:focus {
+	color: #222;
+}
+
+
+#archives li time {
+	display: block;
+	float: right;
+	border-left: 1px solid #c0c0c0;
+	width: 100px;
+	text-align: center;
+	padding: 5px;
+	font-size: 10px;
+}
+
+#archives li span {
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	font-size: 15px;
+	-moz-transition: all 0.3s ease-out;
+}
+
+#archives li a:hover span,
+#archives li a:focus span {
+	padding-left: 20px
+}
+
+
+.r {
+	float: right;
+}
+
+#me {
+	-moz-transform: rotate(3deg);
+	background: #fff;
+	box-shadow: 1px 1px 5px #999;
+	-moz-transition: all 1s ease;
+}
+
+#me:hover {
+	-moz-transform: scale(1.1);
+}
