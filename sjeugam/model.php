@@ -67,7 +67,7 @@ class SjeugamEntry {
 	    $alias = preg_replace('/[-]{2,}/','-',$alias); // Replaces one or more occurrences of a hyphen, with a single one.  
 	    $alias = trim($alias,'-'); // This ensures that our string doesn't start or end with a hyphen.  
 		$this->alias = $alias;
-		$this->url = sprintf('%s%s',Sjeugam_BASE_URL,$this->alias);
+		$this->url = sprintf('%s%s',SJEUGAM_BASE_URL,$this->alias);
 		
 		if(!file_exists($this->get_cache_path()) || $override_cache) {
 			require_once('markdown.php');
