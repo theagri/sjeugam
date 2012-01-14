@@ -16,13 +16,13 @@ class SjeugamController {
 		if(empty($route) || is_null($route)) {
 			$entries = $this->model->getEntries(5);
 			$this->render('header');
-			$this->render('home',$entries);
+			$this->render('home',array('d'=>$entries));
 			$this->render('footer');
 		}
 		elseif($route == 'archives') {
 			$entries = $this->model->getEntries();
 			$this->render('header');
-			$this->render('archives',$entries);
+			$this->render('archives',array('d'=>$entries));
 			$this->render('footer');
 		}
 		elseif($route == 'info') {
@@ -32,20 +32,20 @@ class SjeugamController {
 		}
 		elseif($route == 'feed') {
 			$entries = $this->model->getEntries(false,true);
-			$this->render('feed',$entries);
+			$this->render('feed',array('d'=>$entries));
 		}
 		elseif($route == 'update') {
 			$output = shell_exec(sprintf('cd %s && git pull',SJEUGAM_POSTS_PATH));
 			$this->model->getEntries(false,true);
 			$this->render('header');
-			$this->render('update',$output);
+			$this->render('update',array('d'=>$output));
 			$this->render('footer');
 		}
 		else {
 			$entry = $this->model->getEntry($route);
-			$this->render('header',$entry);
+			$this->render('header',array('d'=>$entry));
 			if($entry) {
-				$this->render('entry',$entry);
+				$this->render('entry',array('d'=>$entry));
 			}
 			else {
 				$this->render('404');
@@ -54,10 +54,8 @@ class SjeugamController {
 		}
 	}
 	
-	private function render($template,$data=null) {
-		if(!is_null($data)) {
-			$d = $data;
-		}	
+	private function render($template,$data=array()) {
+		extract($data,EXTR_SKIP);
 		include(sprintf('%s/%s.tpl.php',$this->tpl_dir,$template));	
 	}
 }

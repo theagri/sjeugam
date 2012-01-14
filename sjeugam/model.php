@@ -80,7 +80,7 @@ class SjeugamEntry {
 		}
 		
 		if(!file_exists($this->get_cache_path()) || $override_cache) {
-			require_once('markdown.php');
+			require_once('lib/markdown.php');
 			$this->body = Markdown($body);
 			$this->body = preg_replace('#<h1>(.*)</h1>#i','<h1><a href="'.$this->url.'">$1</a></h1>',$this->body);
 			$this->bodyWithoutTitle = preg_replace('#<h1>(.*)</h1>#i','',$this->body);
