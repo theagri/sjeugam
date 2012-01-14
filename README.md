@@ -19,6 +19,11 @@ For instance, if you're using nginx, this is how it could look:
 		rewrite ^/(.*)$ /index.php?route=$1 last;
 	}
 
+
+You also need to change your sjeugam/config.php accordingly:
+
+	define('SJEUGAM_USE_REWRITE',true);
+
 After this is changed, you need to rebuild your cache for entry links to work.
 
 ##Automatic publishing
@@ -41,3 +46,7 @@ Then, create ~/bin/update_blog.sh with the following (edited) contents:
 	sudo -u YOURUSER git pull
 
 This will make bash cd to your posts_src folder every minute and run git pull. This means you can't have a pubkey password for your user. If every minute is too often for you, just tweak your crontab accordingly.
+
+##Credits
+
+* [PHP-Markdown](https://github.com/michelf/php-markdown) by [Michel Fortin](https://github.com/michelf)
