@@ -61,11 +61,11 @@ class SjeugamEntry {
 		if($this->title[0] == '#') {
 			$this->title = substr($this->title,1);
 		}
-	    $alias = strtolower($this->title); // Makes everything lowercase (just looks tidier).  
-	    $alias = str_replace(array('å','ä','ö'),array('a','a','o'),$alias);
-	    $alias = preg_replace('/[^a-z0-9]+/','-',$alias); // Replaces all non-alphanumeric characters with a hyphen.  
-	    $alias = preg_replace('/[-]{2,}/','-',$alias); // Replaces one or more occurrences of a hyphen, with a single one.  
-	    $alias = trim($alias,'-'); // This ensures that our string doesn't start or end with a hyphen.  
+		$alias = strtolower($this->title); // Makes everything lowercase (just looks tidier).  
+		$alias = str_replace(array('å','ä','ö'),array('a','a','o'),$alias);
+		$alias = preg_replace('/[^a-z0-9]+/','-',$alias); // Replaces all non-alphanumeric characters with a hyphen.  
+		$alias = preg_replace('/[-]{2,}/','-',$alias); // Replaces one or more occurrences of a hyphen, with a single one.  
+		$alias = trim($alias,'-'); // This ensures that our string doesn't start or end with a hyphen.  
 		$this->alias = $alias;
 		$this->url = sprintf('%s%s',SJEUGAM_BASE_URL,$this->alias);
 		
