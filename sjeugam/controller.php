@@ -35,10 +35,13 @@ class SjeugamController {
 			$this->render('feed',array('d'=>$entries));
 		}
 		elseif($route == 'update') {
+			/*
+			For this to work the web server must be run by the same user that has access to the repo.
 			$output = shell_exec(sprintf('cd %s && git pull',SJEUGAM_POSTS_PATH));
+			*/
 			$this->model->getEntries(false,true);
 			$this->render('header');
-			$this->render('update',array('d'=>$output));
+			$this->render('update');
 			$this->render('footer');
 		}
 		else {

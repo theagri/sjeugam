@@ -29,7 +29,7 @@ After this is changed, you need to rebuild your cache for entry links to work.
 ##Automatic publishing
 * Make sure you have a folder called posts_src in your SJEUGAM directory
 * Set up a git repo so that when you pull, your .md files appear in the post_src directory. 
-* You can either set up a cron job that cd's to your posts_src folder and runs a git pull (see example below) or just point your browser to http://yoursite/update to make the server do the same thing for you.
+* You can set up a cron job that cd's to your posts_src folder and runs a git pull. See example below.
 
 ###Cron job example
 Add the following line to your crontab (using sudo crontab -e):
@@ -46,6 +46,7 @@ Then, create ~/bin/update_blog.sh with the following (edited) contents:
 	sudo -u YOURUSER git pull
 
 This will make bash cd to your posts_src folder every minute and run git pull. This means you can't have a pubkey password for your user. If every minute is too often for you, just tweak your crontab accordingly.
+
 
 ##Credits
 
