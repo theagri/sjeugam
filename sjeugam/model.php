@@ -72,7 +72,7 @@ class SjeugamEntry {
 		$alias = preg_replace('/[-]{2,}/','-',$alias); // Replaces one or more occurrences of a hyphen, with a single one.  
 		$alias = trim($alias,'-'); // This ensures that our string doesn't start or end with a hyphen.  
 		$this->alias = $alias;
-		if(defined(SJEUGAM_USE_REWRITE) && SJEUGAM_USE_REWRITE) {
+		if(defined('SJEUGAM_USE_REWRITE') && SJEUGAM_USE_REWRITE) {
 			$this->url = sprintf('%s%s',SJEUGAM_BASE_URL,$this->alias);
 		}
 		else {
